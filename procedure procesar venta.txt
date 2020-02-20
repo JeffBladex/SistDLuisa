@@ -1,0 +1,82 @@
+DELIMITER $$
+		CREATE PROCEDURE procesar_venta(idusuario int, idcliente int, token_secuencia int)
+        BEGIN
+            DECLARE factura int;
+            DECLARE registros int;
+            DECLARE total decimal(8,2);
+            
+            DECLARE nueva_existencia int;
+            DECLARE existencia_actual int;
+            
+            DECLARE tmp_cod_producto int;
+            DECLARE tmp_cant_producto int;
+            
+            DECLARE p_base decimal(8,2);
+            DECLARE pwiva decimal(8,2);
+            
+            DECLARE a int;
+            set a=1;
+            
+            CREATE TEMPORARY TABLE tbl_tmp_tokensecuencia(
+            	id bigint not null AUTO_INCREMENT PRIMARY KEY,
+                cod_producto bigint,
+                cant_producto int
+            );
+            
+            SET registros  = (SELECT COUNT(*) FROM detalle_ventas_temp
+                              WHERE secuencia= token_secuencia);
+                              
+            IF registros > 0 THEN
+            	INSERT INTO tbl_tmp_tokensecuencia(cod_producto, cant_producto)
+                SELECT idcompras, cantidad
+                FROM detalle_ventas_temp
+                WHERE secuencia = token_secuencia;
+                
+                INSERT INTO factura(idusuario, idcliente) VALUES(idusuario, idcliente);
+                SET factura = LAST_INSERT_ID();
+             
+                INSERT INTO detalle_factura(nrofactura, idarticulo, cantidad, precio_venta, precio_total)
+                SELECT (factura) AS nrofactura, dtalle_vta_tmp.idarticulo, dtalle_vta_tmp.cantidad, dtalle_vta_tmp.precio_venta, (dtalle_vta_tmp.cantidad * dtalle_vta_tmp.precio_venta) as precio_total
+                FROM detalle_ventas_temp as dtalle_vta_tmp
+                WHERE secuencia= token_secuencia;
+                
+                WHILE a <= registros DO
+                	SELECT cod_producto, cant_producto
+                    INTO tmp_cod_producto, tmp_cant_producto
+                    FROM tbl_tmp_tokensecuencia
+                    WHERE id = a;
+                    
+                    SELECT existencia  INTO existencia_actual
+                    FROM compras where idcompras = tmp_cod_producto;
+                    
+                    SET nueva_existencia = existencia_actual - tmp_cant_producto;
+                    UPDATE compras set existencia = nueva_existencia where idcompras = tmp_cod_producto;
+                    
+                    SET a=a+1;
+                    
+                END WHILE;
+                
+                SET p_base = (SELECT SUM(cantidad * precio_venta) as pbase FROM detalle_ventas_temp 
+                             WHERE secuencia = token_secuencia);
+                
+                SET pwiva = (SELECT SUM(cantidad * precio_venta*0.12) as iva FROM detalle_ventas_temp 
+                             WHERE secuencia = token_secuencia);
+                             
+                SET total = (SELECT SUM(cantidad * precio_venta*1.12) from detalle_ventas_temp
+                WHERE secuencia = token_secuencia);
+                
+                UPDATE factura set 
+                pbase = p_base, 
+                piva = pwiva,
+                total_factura = total WHERE nrofactura = factura;    
+                
+                DELETE FROM detalle_ventas_temp WHERE secuencia = token_secuencia;
+                TRUNCATE TABLE tbl_tmp_tokensecuencia;
+                SELECT * FROM factura where nrofactura = factura;
+ 
+                
+            ELSE
+            	SELECT 0;
+            
+            END IF;
+        END $$

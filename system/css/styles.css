@@ -1,0 +1,394 @@
+/*--- BEGIN Page-Login ---*/
+
+*{
+	margin: 0;
+	padding : 0;
+	box-sizing: border-box;
+
+}
+
+header{
+	position: relative;
+}
+
+.header{
+	background-color: rgb(14,11,82);
+}
+
+nav ul li a:hover{
+	color: yellow;
+}
+
+.container{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.footer{
+	position: absolute;
+	width: 100%;
+	height: 5%;
+	bottom: 0;
+	margin: 0 auto;
+	text-align: center;
+	background-color: rgb(5,129,103);
+}
+
+.footer p{
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	vertical-align: bottom;
+}
+
+section.footerLogo{
+ background-color: rgb(14,11,82);
+}
+
+.footLogo img{
+	display:block;
+	margin:auto;
+}
+
+#container-loginForm{
+	/*background-color: #90d5be;*/
+	background-color: rgba(5,129,103, 0.8);
+	width: 75%;
+	height: 100vh;
+	float: left;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#container-loginForm h2{
+	font-family: 'Arial';
+	font-size: 25pt;
+	letter-spacing: 1px;
+	width: 100%;
+	background-color: #2980b9;
+	padding: 15px;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#container-loginForm form img{
+	margin: 5px auto;
+	text-align: center;
+	display: block;
+}
+
+#container-loginForm input{
+	font-style: italic;
+	font-size: 16pt;
+	text-align: center;
+}
+
+select{
+	text-align: center;
+}
+
+input[type=submit]{
+	color: #000;
+	font-weight: bold;
+}
+
+#container-loginForm .alert-login p{
+	margin-top: 1em;
+	font-family: 'Arial';
+	color: yellow;
+	background-color: #000;
+	font-size: 16pt;
+	text-align: center;
+}
+
+
+#container-Tools{
+	background-color: rgba(10, 70, 97, 0.7);
+	width: 25%;
+	height: 100vh;
+	 float: right;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+}
+
+#container-Tools img{
+	width: 100%;
+	height: 32%;
+	opacity: 0.8;
+}
+
+#container-loginForm h2, 
+#container-loginForm img,
+#container-loginForm input{
+	margin-left: 1em;
+}
+
+/*--- END Page-Login ---*/
+
+
+
+/*--- BEGIN Page-Registro_Usuario---*/
+.form_register{
+
+
+}
+/*--- END Page-Registro_Usuario---*/
+
+
+/*--- BEGIN Page-Editar_Usuario---*/
+.NotItemOne option:first-child{
+	display: none;
+}
+
+/*--- END Page-Editar_Usuario---*/
+
+/*--- BEGIN Page-Eliminar_Confirmar_Usuario---*/
+.container-delete-user{
+	margin-top: 5%;
+}
+
+.data-delete-head, .data-delete-body{
+	text-align: center;
+}
+
+.data-delete-head h4{
+	background-color: rgba(255, 87, 51, 0.9);
+	padding: 0.5em;
+	border-radius: 0.25em;
+	font-size: 14pt;
+}
+
+.data-delete-head span{
+	font-weight: bold;
+	color: #4f72d4;
+	font-size: 14pt;
+}
+
+/*--- END Page-Eliminar_Confirmar_Usuario---*/
+/*--- BEGIN Page-Registro_Articulo---*/
+
+
+/*--- END Page-Registro_Articulo---*/
+/*--- BEGIN Page-Nueva_Venta---*/
+
+/*============ Ventas ============*/
+.datos_cliente, .datos_venta, .title_page{
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+#detalle_venta tr{
+	background-color: #FFF !important;
+}
+#detalle_venta td{
+	border-bottom: 1px solid #CCC;
+}
+.datos{
+	background-color: #e3ecef;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 2px solid #78909C;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.action_cliente{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+}
+
+.datos label{
+	margin: 5px auto;
+
+}
+.wd20{
+	width: 20%;
+}
+.wd25{
+	width: 25%;
+}
+.wd30{
+	width: 30%;
+}
+.wd40{
+	width: 40%;
+}
+.wd50{
+	width: 50%;
+}
+
+.wd60{
+	width: 60%;
+}
+.wd100{
+	width: 100%;
+}
+
+.border-redondear{
+	border-radius: 0.25em;
+}
+
+#div_registro_cliente, #add_Articulo_Venta{
+	display: none;
+}
+.displayN{
+	display: none;
+}
+.tbl_venta{
+	max-width: 900px;
+	margin: auto;
+}
+.table_venta tfoot td{
+	font-weight: bold;
+}
+.text-right{
+	text-align: right;
+}
+.text-center{
+	text-align: center;
+}
+.text-left{
+	text-align: left;
+}
+.btn_anular_venta{
+	background-color: #f36a6a;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 3px;
+	color: #FFF;
+}
+
+/*--- END Page-Nueva_Venta---*/
+
+/*--- BEGIN Page-Listado_Venta---*/
+.form_search_date{
+	padding: 10px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 10px;
+	margin: 10px auto;
+}
+
+.form_search_date label{
+	margin: 0 10px;
+}
+
+.form_search_date label{
+	width: auto;
+}
+
+.form_search_date .btn_view{
+	padding: 8px;
+}
+
+.btn_view{
+	background-color: #1faac8;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 10px;
+	margin: 0 3px;
+	color: #fff;
+}
+
+.div_acciones, .div_factura{
+	display: inline-block;
+}
+
+.anulada{
+	background-color: #f36a6a;
+	border-radius: 5px;
+	padding: 4px 15px;
+	color: black;
+}
+
+.pagada{
+	background-color: darkgreen;
+	border-radius: 5px;
+	padding: 4px 15px;
+	color: white;
+}
+
+.listar_ventas{
+	display: inline-block;
+	font-weight: bold;
+}
+
+.listar_ventas a{
+	color: white;
+}
+
+.bd-orange{
+	border-radius: 0.5em;
+	border: solid 0.5em orange;
+}
+
+.bg-orange{
+	background-color: orange;
+}
+
+.bd-verde{
+	border-radius: 0.5em;
+	border: solid 0.5em green;
+}
+
+.bg-verde{
+	background-color: green;
+}
+
+.bd-azul{
+	border-radius: 0.5em;
+	border: solid 0.5em blue;
+}
+
+.bg-azul{
+	background-color: blue;
+}
+
+/*--- END Page-Listado_Venta---*/
+
+/*--- BEGIN Page-Listado_Compras---*/
+.btn_accion a{
+	display: inline-block;
+}
+
+/*--- END Page-Listado_Compras---*/
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+DELIMITER $$
+	CREATE PROCEDURE add_detalle_ventas_temp(idcompras int,idarticulo int,codigo_articulo varchar(50), cantidad int, precio_pagar decimal(8,2), token_user varchar(50))
+    	BEGIN
+            DECLARE descripcion_art varchar(150);
+            SELECT descripcion INTO descripcion_art FROM articulo as art where art.idarticulo = idarticulo;
+            
+            INSERT INTO detalle_ventas_temp(idcompras,idarticulo,secuencia,codigo_articulo,descripcion,cantidad,precio_venta,token_user)
+            VALUES(idcompras,idarticulo,secuencia,codigo_articulo,UPPER(descripcion_art),cantidad,precio_pagar,token_user);
+           
+        END $$

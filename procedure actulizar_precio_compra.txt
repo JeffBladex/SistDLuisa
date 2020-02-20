@@ -1,0 +1,32 @@
+DELIMITER $$
+	CREATE PROCEDURE actualizar_precio_compra(n_cantidad int, n_precio_venta decimal(8,2), codigo_compra int)
+    BEGIN
+    	DECLARE nueva_existencia int;
+        DECLARE nuevo_total decimal(8,2);
+        DECLARE nuevo_precio_venta decimal(8,2);
+        
+        DECLARE cant_actual int;
+        DECLARE pre_venta_actual decimal(8,2);
+        
+        DECLARE actual_existencia int;
+        DECLARE actual_precio_venta decimal(8,2);
+        
+        DECLARE fecha_mod datetime;
+        
+        SELECT precio_venta, existencia INTO actual_precio_venta, actual_existencia
+        FROM compras where idcompras = codigo_compra;
+        SET nueva_existencia = actual_existencia + n_cantidad;
+        SET nuevo_total = (actual_existencia * actual_precio_venta) + (n_cantidad * n_precio_venta);
+        SET nuevo_precio_venta = n_precio_venta;
+        
+        SET fecha_mod = now();
+        
+        UPDATE compras SET existencia = nueva_existencia,
+        					precio_venta = nuevo_precio_venta,
+                            fecha_add = fecha_mod
+        WHERE idcompras = codigo_compra;
+        
+        SELECT nueva_existencia, nuevo_precio_venta, fecha_mod;
+    
+    END; $$
+    

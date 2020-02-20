@@ -1,0 +1,6 @@
+DELIMITER $$
+		CREATE PROCEDURE procesar_venta(idusuario int, idcliente int, token_secuencia int)
+        BEGIN
+    	DELETE FROM detalle_ventas_temp WHERE correlativo = correlativo;
+        
+    END $$
