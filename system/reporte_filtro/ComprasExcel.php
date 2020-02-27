@@ -24,6 +24,7 @@
 			<th>Fecha Agg</th>
 			<th>Nombre Proveedor</th>
 			<th>Nombre Articulo</th>
+			<th>Descripcion Articulo</th>
 			<th>Tipo Comprobante</th>
 			<th>Serie Comprobante</th>
 			<th>Num Comprobante</th>
@@ -37,7 +38,7 @@
 					$fechaDesde = $_REQUEST['RComp_FD'];
 					$fechaHasta = $_REQUEST['RComp_FH'];
 
-					$query_select = "SELECT rc.idRegistroCompras, rc.fecha_add as fecha, pro.nombre as nombre_proveedor, art.nombre as nombre_articulo,
+					$query_select = "SELECT rc.idRegistroCompras, rc.fecha_add as fecha, pro.nombre as nombre_proveedor, art.nombre as nombre_articulo, art.descripcion as descripcion_articulo,
 					rc.tipo_comprobante, rc.serie_comprobante, rc.num_comprobante, rc.existencia as cantidad, rc.precio_compra
 					FROM registro_compras as rc 
 					JOIN proveedor as pro on rc.idproveedor = pro.idproveedor
@@ -59,6 +60,7 @@
 				<td><?php echo $data['fecha']; ?></td>
 				<td><?php echo $data['nombre_proveedor']; ?></td>
 				<td><?php echo $data['nombre_articulo']; ?></td>
+				<td><?php echo $data['descripcion_articulo']; ?></td>
 				<td><?php echo $data['tipo_comprobante']; ?></td>
 				<td><?php echo $data['serie_comprobante']; ?></td>
 				<td><?php echo $data['num_comprobante']; ?></td>
