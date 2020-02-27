@@ -54,7 +54,7 @@
 								<th>No.Fact</th>
 								<th>Fecha/Hora</th>
 								<th>Proveedor</th>
-								<th>Artículo</th>
+								<th>Descripción</th>
 								<th>Tipo Comprobante</th>
 								<th>Serie Comprobante</th>
 								<th>Número Comprobante</th>
@@ -68,7 +68,7 @@
 						</thead>
 
 						<?php 
-							$query = "SELECT rc.idRegistroCompras,rc.fecha_add, proveedor.nombre AS nombre_proveedor, articulo.nombre AS nombre_articulo, rc.tipo_comprobante, rc.serie_comprobante, rc.num_comprobante, rc.existencia, rc.precio_compra, user.nombre AS nombre_usuario
+							$query = "SELECT rc.idRegistroCompras,rc.fecha_add, proveedor.nombre AS nombre_proveedor, articulo.descripcion AS descripcion_articulo, rc.tipo_comprobante, rc.serie_comprobante, rc.num_comprobante, rc.existencia, rc.precio_compra, user.nombre AS nombre_usuario
 								FROM registro_compras as rc JOIN proveedor as proveedor ON rc.idproveedor = proveedor.idproveedor
 								JOIN articulo as articulo ON rc.idarticulo = articulo.idarticulo
 	                            JOIN usuario AS user ON rc.idusuario = user.idusuario
@@ -91,7 +91,7 @@
 												<td><?php echo $data['idRegistroCompras']; ?></td>
 												<td><?php echo $data['fecha_add']; ?></td>
 												<td><?php echo $data['nombre_proveedor']; ?></td>
-												<td><?php echo $data['nombre_articulo']; ?></td>
+												<td><?php echo $data['descripcion_articulo']; ?></td>
 												<td><?php echo $data['tipo_comprobante']; ?></td>
 												<td><?php echo $data['serie_comprobante']; ?></td>
 												<td><?php echo $data['num_comprobante']; ?></td>

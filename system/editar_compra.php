@@ -83,9 +83,6 @@
 
 			 		$query_update1 = '';
 
-			 		echo $sql_update_compras . '<br>';
-					// echo $sql_update_detalle_compras . '<br>'; exit;
-
 					$query_update1 = mysqli_query($con, $sql_update_compras);
 
 				if($query_update1 == 'true'){

@@ -54,8 +54,8 @@
 								<th>No.Fact</th>
 								<th>Fecha/Hora</th>
 								<th>Proveedor</th>
-								<th>Artículo</th>
-								<th>Codigo Art</th>
+								<th>Descripción</th>
+								<th>Código</th>
 								<th>Tipo Comprobante</th>
 								<th>Serie Comprobante</th>
 								<th>Número Comprobante</th>
@@ -71,7 +71,7 @@
 						</thead>
 
 						<?php 
-							$query = "SELECT compras.idcompras,compras.fecha_add, proveedor.nombre AS nombre_proveedor, articulo.nombre AS nombre_articulo, articulo.codigo, compras.tipo_comprobante, compras.serie_comprobante, compras.num_comprobante, compras.existencia, compras.precio_compra, compras.precio_venta, user.nombre AS nombre_usuario
+							$query = "SELECT compras.idcompras,compras.fecha_add, proveedor.nombre AS nombre_proveedor, articulo.descripcion AS descripcion_articulo, articulo.codigo, compras.tipo_comprobante, compras.serie_comprobante, compras.num_comprobante, compras.existencia, compras.precio_compra, compras.precio_venta, user.nombre AS nombre_usuario
 								FROM compras as compras JOIN proveedor as proveedor ON compras.idproveedor = proveedor.idproveedor
 								JOIN articulo as articulo ON compras.idarticulo = articulo.idarticulo
 	                            JOIN usuario AS user ON compras.idusuario = user.idusuario
@@ -94,7 +94,7 @@
 												<td><?php echo $data['idcompras']; ?></td>
 												<td class="cellFechaMod"><?php echo $data['fecha_add']; ?></td>
 												<td><?php echo $data['nombre_proveedor']; ?></td>
-												<td><?php echo $data['nombre_articulo']; ?></td>
+												<td><?php echo $data['descripcion_articulo']; ?></td>
 												<td><?php echo $data['codigo']; ?></td>
 												<td><?php echo $data['tipo_comprobante']; ?></td>
 												<td><?php echo $data['serie_comprobante']; ?></td>

@@ -6,7 +6,7 @@
 
 	if(!empty($_POST)){
 		$alert = '';
-		if(empty($_POST['idcategoria']) || empty($_POST['codigo']) || empty($_POST['nombre'])){
+		if(empty($_POST['categorias']) || empty($_POST['codigo']) || empty($_POST['nombre'])){
 			$alert = '<p class="alert alert-warning" role="alert">Todos los Campos Son Obligatorios. !!!</p>';
 			
 		}else{
@@ -17,17 +17,21 @@
 			$descripcion = '';
 			// $foto = '';
 
-			$idcategoria = $_POST['idcategoria'];
+			$idcategoria = $_POST['categorias'];
 			$codigo = $_POST['codigo'];
 			$nombre = $_POST['nombre'];
 			$descripcion = $_POST['descripcion'];
 
 			$idusuario = $_SESSION['idusuario'];
 
+			$idarticulo = $_POST['idarticulo'];
+
+			
 			$query = "SELECT * FROM articulo
 						WHERE (nombre = '$nombre' AND idarticulo!= '$idarticulo')
-						OR (codigo= '$=codigo' AND idarticulo
-						!= '$idarticulo')";
+						OR (codigo = '$codigo' AND idarticulo!= '$idarticulo')
+						";
+
 
 			$query = mysqli_query($con, $query);
 			$result = mysqli_fetch_array($query);

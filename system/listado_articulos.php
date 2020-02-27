@@ -49,15 +49,15 @@
 							<th>Categoria</th>
 							<th>Codigo</th>
 							<th>Nombre</th>
-							<th>Descripcion</th>
-
+							<th>Descripción</th>
+							<th>Fecha AGG</th>
 							<th>Acciones</th>
 						
 						</tr>
 					</thead>
 
 					<?php 
-						$query = "SELECT articulo.idarticulo, cat.nombre AS nombre_categoria, articulo.codigo, articulo.nombre AS nombre_articulo, articulo.descripcion
+						$query = "SELECT articulo.idarticulo, cat.nombre AS nombre_categoria, articulo.codigo, articulo.nombre AS nombre_articulo, articulo.descripcion, articulo.fecha_add
 							FROM articulo AS articulo JOIN categoria AS cat ON articulo.idcategoria = cat.idcategoria
 							WHERE articulo.estatus = 1 ORDER BY articulo.nombre ASC";
 
@@ -86,6 +86,7 @@
 											<td><?php echo $cod_articulo; ?></td>
 											<td><?php echo $data['nombre_articulo']; ?></td>
 											<td><?php echo $data['descripcion']; ?></td>
+											<td><?php echo $data['fecha_add']; ?></td>
 
 											<td>
 											
